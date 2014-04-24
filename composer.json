@@ -1,0 +1,27 @@
+{
+    "name":        "umpirsky/titlerator",
+    "type":        "library",
+    "description": "Convert subtitles to utf-8 encoding.",
+    "license":     "MIT",
+    "authors": [
+        {
+            "name":     "Saša Stamenković",
+            "homepage": "http://umpirsky.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "knplabs/gaufrette": "0.2.*@dev",
+        "umpirsky/transliterator": "*@dev",
+        "neitanod/forceutf8": "*@dev"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "2.0.*@dev"
+    },
+    "autoload": {
+        "psr-0": { "Titlerator\\": "src/" }
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}
