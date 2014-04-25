@@ -46,7 +46,7 @@ class TitleratorSpec extends ObjectBehavior
     function it_uses_transliterator_for_text_transliteration($transliterator)
     {
         $this->setText('Dobar dan.');
-        $transliterator->lat2Cyr('Dobar dan.')->shouldBeCalled()->willReturn('Добар дан.');
+        $transliterator->transliterate('Dobar dan.', false)->shouldBeCalled()->willReturn('Добар дан.');
 
         $this->transliterate();
 

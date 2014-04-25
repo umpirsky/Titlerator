@@ -13,7 +13,10 @@
         "php": ">=5.4",
         "knplabs/gaufrette": "0.2.*@dev",
         "umpirsky/transliterator": "*@dev",
-        "neitanod/forceutf8": "*@dev"
+        "neitanod/forceutf8": "*@dev",
+        "silex/silex": "~1.2",
+        "twig/twig": "~1.15",
+        "symfony/twig-bridge": "~2.4"
     },
     "require-dev": {
         "phpspec/phpspec": "2.0.*@dev"

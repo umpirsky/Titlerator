@@ -45,9 +45,9 @@ class Titlerator
         return $this;
     }
 
-    public function transliterate()
+    public function transliterate($direction = false)
     {
-        $this->text = $this->transliterator->lat2Cyr($this->text);
+        $this->text = $this->transliterator->transliterate($this->text, $direction);
 
         return $this;
     }

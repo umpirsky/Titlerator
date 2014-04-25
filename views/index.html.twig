@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Конвертор титлова</title>
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <style type="text/css">
+        html,body {
+            height:100%;
+        }
+
+        h1 {
+            font-family: Arial,sans-serif
+            font-size:80px;
+            color:#DDCCEE;
+        }
+
+        .lead {
+            color:#DDCCEE;
+        }
+
+
+        /* Custom container */
+        .container-full {
+            margin: 0 auto;
+            width: 100%;
+            min-height:100%;
+            background-color:#110022;
+            color:#eee;
+            overflow:hidden;
+        }
+
+        .container-full a {
+            color:#efefef;
+            text-decoration:none;
+        }
+
+        .v-center {
+            margin-top:7%;
+        }
+
+        .btn-file {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-file input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 999px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
+        }
+    </style>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body  >
+    <div class="container-full">
+        <div class="row">
+            <div class="col-lg-12 text-center v-center">
+                <h1>Конвертор титлова</h1>
+                <p class="lead">Уморни сте од аљавих титлова? Дæææ!</p>
+                <br><br><br>
+                <form action="{{ path('convert') }}" method="post" enctype="multipart/form-data" class="col-lg-12">
+                    <div class="input-group" style="width:400px;text-align:center;margin:0 auto;">
+                        {% if error is defined %}<div class="alert alert-danger">{{ error }}</div>{% endif %}
+                        <div class="btn btn-default btn-file">
+                            <span><i class="glyphicon glyphicon-film"></i> Изабери</span>
+                            <input name="title" type="file">
+                        </div>
+                        <div class="btn-group" style="margin-left: 10px;">
+                            <button type="submit" name="cyrillic" class="btn btn-default">Ћирилица</button>
+                            <button type="submit" name="latin" class="btn btn-default">Latinica</button>
+                            <button type="button" class="btn btn-default" id="joke">Глагољица</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center v-center" style="font-size:39pt;">
+                <a href="https://github.com/umpirsky"><i class="icon-github"></i></a> <a href="http://rs.linkedin.com/in/umpirsky"><i class="icon-linkedin"></i></a> <a href="http://twitter.com/umpirsky"><i class="icon-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+    <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script type='text/javascript'>
+        $(document).ready(function() {
+            $(document).on('change', '.btn-file :file', function() {
+                var name = ($(this).val().replace(/\\/g, '/').replace(/.*\//, ''));
+                if (name.length > 10) {
+                    name = name.substring(0, 10) + '...';
+                }
+
+                $(this).prev().text(name);
+            });
+
+            $('#joke').on('click', function() {
+                window.alert('Слабије.');
+            });
+        });
+    </script>
+</body>
+</html>
