@@ -36,18 +36,18 @@ class Titlerator
             $this->text
         );
 
-        $this->text = str_replace(
-            ['<и>', '<б>'],
-            ['<i>', '<b>'],
-            $this->text
-        );
-
         return $this;
     }
 
     public function transliterate($direction = false)
     {
         $this->text = $this->transliterator->transliterate($this->text, $direction);
+
+        $this->text = str_replace(
+            ['<и>', '</и>', '<б>', '</б>'],
+            ['<i>', '</i>', '<b>', '</b>'],
+            $this->text
+        );
 
         return $this;
     }
